@@ -39,141 +39,155 @@ import Confirm from "myt-react-confirm"
 ```
   
 ## Basic Usage
-```js
-    <Confirm label="Click Me" message="are you sure?" onConfirm={() => alert("confimed")} onCancel={() => alert("cancel")}/>
+[![Edit myt-react-confirm-basic](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/myt-react-confirm-basic-2c4w8?fontsize=14&hidenavigation=1&theme=dark)
+```html
+<Confirm 
+    label="Click Me" 
+    message="are you sure?" 
+    onConfirm={() => alert("confimed")} 
+    onCancel={() => alert("cancel")}
+/>
 ```
 
 
 ## Aliasing Usage
 You can use a custom button element type for this component.<br/><br/>
-
+[![Edit myt-react-confirm-basic](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/myt-react-confirm-basic-2c4w8?fontsize=14&hidenavigation=1&theme=dark)
 ```js
 import Confirm from "myt-react-confirm"
 import {Button} from "react-bootstrap"
 ```
-```js
-    <Confirm label="Customize Button" as={Button} size="sm" variant="success"  message="are you sure?" onConfirm={() => alert("confimed")} onCancel={() => alert("cancel")}/>
+```html
+<Confirm 
+    label="Customize Button" 
+    as={Button} 
+    size="sm" 
+    variant="success"  
+    message="are you sure?" 
+    onConfirm={() => alert("confimed")} 
+    onCancel={() => alert("cancel")}
+/>
 ```
 
 
 ## Animation Usage
 You can use a custom animation class using @keyframe for this component.<br/>
 [animate.css](https://daneden.github.io/animate.css/) for cool animations.<br/><br/>
-
-```js
-    <Confirm
-        animation={{
-          enter: "animated slideInLeft",
-          exit: "animated slideOutRight"
-        }}
-        label="I'm gonna slide" 
-        timing={1000}
-        placement="bottom-right"
-        message="did it show cool animations?"
-        onConfirm={() => alert("confimed")} 
-        onCancel={() => alert("cancel")} 
-      />
+[![Edit myt-react-confirm-basic](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/myt-react-confirm-basic-2c4w8?fontsize=14&hidenavigation=1&theme=dark)
+```html
+<Confirm
+    animation={{
+        enter: "animated slideInLeft",
+        exit: "animated slideOutRight"
+    }}
+    label="I'm gonna slide" 
+    timing={1000}
+    placement="bottom-right"
+    message="did it show cool animations?"
+    onConfirm={() => alert("confimed")} 
+    onCancel={() => alert("cancel")} 
+/>
 ```
 
 ## Change Labels Usage
 You can change the confirm and cancel label.<br/><br/> 
-
-```js
-    <Confirm
-        animation={{
-          enter: "animated bounceInLeft",
-          exit: "animated bounceOutRight"
-        }}
-        label={{
-          target: "I Have Override Label",
-          confirm: "Yes! It's Cool",
-          cancel: "Not Cool!"
-        }} 
-        timing={1000}
-        placement="bottom"
-        message="did it show cool animations?"
-        onConfirm={() => {
-          alert("confimed");
-        }}
-        stayMountedWhenExited
-        onCancel={() => {
-          alert("cancel");
-        }}
-      />
+[![Edit myt-react-confirm-basic](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/myt-react-confirm-basic-2c4w8?fontsize=14&hidenavigation=1&theme=dark)
+```html
+<Confirm
+    animation={{
+        enter: "animated bounceInLeft",
+        exit: "animated bounceOutRight"
+    }}
+    label={{
+        target: "I Have Override Label",
+        confirm: "Yes! It's Cool",
+        cancel: "Not Cool!"
+    }} 
+    timing={1000}
+    placement="bottom"
+    message="did it show cool animations?"
+    onConfirm={() => {
+        alert("confimed");
+    }}
+    onCancel={() => {
+        alert("cancel");
+    }}
+/>
 ```
 
 ## Prompt Usage
 You can put a input element type inside confirm.<br/><br/> 
-
-```js
-    <Confirm
-        animation={{
-          enter: "animated fadeInLeft",
-          exit: "animated fadeOutRight"
-        }}
-        label={{
-          target: "Click Me",
-          confirm: "Say it",
-          cancel: "I'm not cool"
-        }} 
-        timing={1000}
-        placement="top-right"
-        message="say something cool"
-        onConfirm={event => alert(event.target.value)}
-        onCancel={() => alert("cancel")}
-    >
-        <input type="text" name="confirm" />
-    </Confirm>
+[![Edit myt-react-confirm-basic](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/myt-react-confirm-basic-2c4w8?fontsize=14&hidenavigation=1&theme=dark)
+```html
+<Confirm
+    animation={{
+        enter: "animated fadeInLeft",
+        exit: "animated fadeOutRight"
+    }}
+    label={{
+        target: "Click Me",
+        confirm: "Say it",
+        cancel: "I'm not cool"
+    }} 
+    timing={1000}
+    placement="top-right"
+    message="say something cool"
+    onConfirm={event => alert(event.target.value)}
+    onCancel={() => alert("cancel")}
+>
+    <input type="text" name="confirm" />
+</Confirm>
 ```
 
 ## Prompt with Form Usage
 You can put a form element inside confirm and you can use `preventDefault()` to prevent it from exiting.<br/><br/> 
-
-```js
-    <Confirm
-        animation={{
-          enter: "animated fadeInLeft",
-          exit: "animated fadeOutRight"
-        }}
-        label={{ 
-          target: "Log in", 
-          confirm: "Submit" 
-        }} 
-        timing={1000}
-        placement="top-right"
-        message=""
-        onConfirm={event => {
-          const user = event.FormData.get("user");
-          const password = event.FormData.get("password");
-          const error = document.getElementById("error");
-          if (!user) {
-            event.preventDefault();
-            error.textContent = "Username is required";
-          } else if (!password) {
-            const focusOnPassword = document.getElementById("password");
-            event.preventDefault(focusOnPassword);
-            error.textContent = "Password is required";
-          } else {
-            alert(`username: ${user}\n password: ${password}`);
-          }
-        }}
-        onCancel={() => alert("cancel")}
-      >
-        <form>
-          <p id="error" style={{ color: "crimson" }}/>
-          <input type="text" id="user" name="user" placeholder="username..." /><p /> 
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="password"
-          />
-        </form>
-    </Confirm>
+[![Edit myt-react-confirm-basic](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/myt-react-confirm-basic-2c4w8?fontsize=14&hidenavigation=1&theme=dark)
+```html
+<Confirm
+    animation={{
+        enter: "animated fadeInLeft",
+        exit: "animated fadeOutRight"
+    }}
+    label={{ 
+        target: "Log in", 
+        confirm: "Submit" 
+    }} 
+    timing={1000}
+    placement="top-right"
+    message=""
+    onConfirm={event => {
+        const user = event.FormData.get("user");
+        const password = event.FormData.get("password");
+        const error = document.getElementById("error");
+        if (!user) {
+        event.preventDefault();
+        error.textContent = "Username is required";
+        } else if (!password) {
+        const focusOnPassword = document.getElementById("password");
+        event.preventDefault(focusOnPassword);
+        error.textContent = "Password is required";
+        } else {
+        alert(`username: ${user}\n password: ${password}`);
+        }
+    }}
+    onCancel={() => alert("cancel")}
+    >
+    <form>
+        <p id="error" style={{ color: "crimson" }}/>
+        <input type="text" id="user" name="user" placeholder="username..." /><p /> 
+        <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="password"
+        />
+    </form>
+</Confirm>
 ```
 
 ## Advance Usage
 This package is dependent on [`myt-react-snippet`](https://www.npmjs.com/package/myt-react-snippets) as animation refactor. so you can use it too!!<br/><br/> 
+[![Edit myt-react-confirm-advance-usage](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/affectionate-hopper-w9349?fontsize=14&hidenavigation=1&theme=dark)
 
 ```js
 import React from "react";
@@ -184,7 +198,9 @@ import { ListGroup, ListGroupItem, Button, Container } from "react-bootstrap"
 let unique = 0;
 
 const uniqueKey = () => unique++
-export const TodoWithConfirm2 = () => {
+```
+```html
+export const TodoWithConfirm = () => {
   const [state, setState] = React.useState({
     isProcess: false,
     items: [
@@ -226,8 +242,7 @@ export const TodoWithConfirm2 = () => {
                 ]
               }));
             }
-          }}
-          style={{ margin: "10px 0" }}
+          }} 
         >
           <input
             type="text"
@@ -237,7 +252,7 @@ export const TodoWithConfirm2 = () => {
         </Confirm>
       </Animation>
 
-      <ListGroup>
+      <ListGroup style={{ marginTop: "10px" }}>
         <TransitionGroup>
           {state.items.map(({ id, text, placement }) => {
             return (
@@ -286,7 +301,7 @@ The datatypes with "*" means it is required.
 |PROPERTY   |DATATYPES    |DEFAULT    |DESCRIPTION|
 |-------------|---------------|-------------|-------------|
 | as          | ReactNode *      |   button          | it is the trigger of the component| 
-| label       | string\|element\|object*        |   &nbsp;          | it is the label of the button and you can use object to change the confirm and cancel `{ target: "Click", confirm: "Yes", cancel: "No" }`|
+| label       | [string \| element \| object]*        |   &nbsp;          | it is the label of the button and you can use object to change the confirm and cancel `{ target: "Click", confirm: "Yes", cancel: "No" }`|
 | message       | string* |   &nbsp;          | it is the message of the popover|
 | animation | object |  {enter: "myt-fade-in", exit: "myt-fade-out"} | you can set a customize animations | 
 | timing   | number        |   200          | it is the duration of each animation |

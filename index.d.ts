@@ -15,7 +15,7 @@ export interface LabelProps {
 
 export type EventCallback<P = any> = (event: P) => void
 
-export type ConfirmPrevent<P extends React.ElementType = "input" | "select" | "textarea"> = EventCallback<P>
+export type ConfirmPrevent<P extends HTMLElement> = (event?: P | null) => void
 
 export interface ConfirmEvent {
     target: null | React.ReactNode;
@@ -23,7 +23,7 @@ export interface ConfirmEvent {
     preventDefault: ConfirmPrevent;
 }
  
-export interface ConfirmProps<AS extends React.ElementType = 'button'> {
+export interface ConfirmProps<AS extends React.ElementType = React.ReactNode> {
     as?:        AS;
     label:      React.ReactNode | LabelProps;
     message?:   string; 

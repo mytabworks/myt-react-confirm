@@ -1,6 +1,6 @@
 {
     "name": "myt-react-confirm",
-    "version": "0.1.0",
+    "version": "0.1.4",
     "main": "lib/index.js",
     "description": "This react snippet popover which use to solve the problem of confirmation the actions before deleting, updating, approving, rejecting, you name it.",
     "repository": {
