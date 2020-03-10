@@ -1,8 +1,8 @@
 {
     "name": "myt-react-confirm",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "main": "lib/index.js",
-    "description": "This react snippet popover which use to solve the problem of confirmation the actions before deleting, updating, approving, rejecting, you name it.",
+    "description": "This underated react snippet popover with automatic screen detector, which use to solve the problem of confirmation the actions before deleting, updating, approving, rejecting, you name it.",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/mytabworks/myt-react-confirm.git"

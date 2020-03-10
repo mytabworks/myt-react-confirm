@@ -4,7 +4,7 @@
 [![bundlephobia](https://img.shields.io/bundlephobia/minzip/myt-react-confirm?color=%2371bba4&logo=bundlephobia&style=for-the-badge)](https://bundlephobia.com/result?p=myt-react-confirm)
 
 # myt-react-confirm
-This react confirmation popover was build from the ground up, which is use to solve the problem of confirmation the actions before deleting, updating, approving, rejecting, you name it..
+This underated react confirmation popover with automatic screen detector was build from the ground up, which is use to solve the problem of confirmation the actions before deleting, updating, approving, rejecting, you name it..
 
 - [Installation](#installation)
 - [How To Use](#how-to-use)
